@@ -1,5 +1,5 @@
 import React from "react";
-import Tea from "./Tea.js";
+import Tea from "./Tea";
 
 const mainTeaList = [
   {
@@ -29,14 +29,6 @@ function TeaList(){
           description={tea.description}
           key={index}/>
       )}
-      {/* <Tea 
-        name="Earl Grey"
-        price="$30/lbs"
-        description="A nice, strong tea that has hints of lavender in it."/>
-      <Tea
-        name="Passion"
-        price="$25/lbs"
-        description="insert description"/> */}
     </React.Fragment>
   );
 }

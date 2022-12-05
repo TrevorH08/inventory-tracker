@@ -13,7 +13,7 @@ function Tea(props){
 }
 
 Tea.propTypes = {
-  name: PropTypes.string,isRequired,
+  name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
 };
