@@ -31,6 +31,7 @@ function TeaList(props){
           price={tea.price}
           stock={tea.stock}
           description={tea.description}
+          id={tea.id}
           key={tea.id}/>
       )}
     </React.Fragment>

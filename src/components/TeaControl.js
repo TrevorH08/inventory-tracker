@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import NewTeaForm from './NewTeaForm';
 import TeaList from './TeaList';
+import PropTypes from 'prop-types';
 
 class TeaControl extends React.Component {
 
@@ -15,9 +16,16 @@ class TeaControl extends React.Component {
   }
   
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedTea != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedTicket: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
   }
 
   handleAddingNewTeaToList = (newTea) => {
