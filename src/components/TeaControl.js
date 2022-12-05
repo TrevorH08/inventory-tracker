@@ -65,7 +65,7 @@ class TeaControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.editing) {
-      currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTicket = {this.handleEditingTeaInList} />
+      currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTea = {this.handleEditingTeaInList} />
       buttonText = "Return to Tea List";
     } else if (this.state.selectedTea != null) {
       currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingEdit = {this.handleEditClick} />
