@@ -22,7 +22,8 @@ class TeaControl extends React.Component {
     if (this.state.selectedTea != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTea: null
+        selectedTea: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -51,7 +52,7 @@ class TeaControl extends React.Component {
 
   handleEditingTeaInList = (teaToEdit) => {
     const editedMainTeaList = this.state.mainTeaList
-      .filter(tea -> tea.id !== this.state.selectedTea.id)
+      .filter(tea => tea.id !== this.state.selectedTea.id)
       .concat(teaToEdit);
     this.setState({
       mainTeaList: editedMainTeaList,
