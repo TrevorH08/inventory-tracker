@@ -7,7 +7,7 @@ function Tea(props){
       <div onClick = {() => props.whenTeaClicked(props.id)}>
         <h2>{props.name}</h2>
         <h3>{props.price}</h3>
-        <h3>{props.stock}oz in stock</h3>
+        <h3>{props.stock}</h3>
         <p><em>{props.description}</em></p>
         <hr/>
       </div>
