@@ -16,7 +16,7 @@ function ReusableForm(props) {
         <input
           type='number'
           name='stock'
-          placeholder='Amount in Stock' />
+          placeholder='Stock (New crates 130oz)' />
         <textarea
           name='description'
           placeholder='Describe this strain of tea.' />
