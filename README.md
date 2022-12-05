@@ -1,4 +1,4 @@
-# Jade Dragon Tea
+# Jade Dragon Tea (React Project)
 
 ## By Trevor Hunter
 
