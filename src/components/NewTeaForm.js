@@ -1,28 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReusableForm from "./ReusableForm";
 import { v4 } from 'uuid';
 
 function NewTeaForm(props){
   return (
     <React.Fragment>
-      <form onSubmit={handleNewTeaFormSubmission}>
-        <input
-          type='text'
-          name='name'
-          placeholder='Tea Strain' />
-        <input
-          type='text'
-          name='price'
-          placeholder='Price' />
-        <input
-          type='number'
-          name='stock'
-          placeholder='Amount in Stock' />
-        <textarea
-          name='description'
-          placeholder='Describe this strain of tea.' />
-        <button type='submit'>Add</button>
-      </form>
+      <ReusableForm
+        formSubmissionHandler={handleNewTeaFormSubmission}
+        buttonText="Add" />
     </React.Fragment>
   );
 

@@ -2,6 +2,8 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import NewTeaForm from './NewTeaForm';
 import TeaList from './TeaList';
+import TeaDetail from './TeaDetail';
+import EditTeaForm from './EditTeaForm';
 import PropTypes from 'prop-types';
 
 class TeaControl extends React.Component {
@@ -11,7 +13,8 @@ class TeaControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainTeaList: [],
-      selectedTea: null
+      selectedTea: null,
+      editing: false
     };
   }
   
@@ -19,7 +22,7 @@ class TeaControl extends React.Component {
     if (this.state.selectedTea != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null
+        selectedTea: null
       });
     } else {
       this.setState(prevState => ({
@@ -41,11 +44,30 @@ class TeaControl extends React.Component {
     this.setState({selectedTea: selectedTea});
   }
 
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
+  handleEditingTeaInList = (teaToEdit) => {
+    const editedMainTeaList = this.state.mainTeaList
+      .filter(tea -> tea.id !== this.state.selectedTea.id)
+      .concat(teaToEdit);
+    this.setState({
+      mainTeaList: editedMainTeaList,
+      editing: false,
+      selectedTea: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} />
+    if (this.state.editing) {
+      currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTicket = {this.handleEditingTeaInList} />
+      buttonText = "Return to Tea List";
+    } else if (this.state.selectedTea != null) {
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Tea List";
     }
     else if (this.state.formVisibleOnPage) {
