@@ -14,6 +14,10 @@ function NewTeaForm(props){
           type='text'
           name='price'
           placeholder='Price' />
+        <input
+          type='number'
+          name='stock'
+          placeholder='Amount in Stock' />
         <textarea
           name='description'
           placeholder='Describe this strain of tea.' />
@@ -27,6 +31,7 @@ function NewTeaForm(props){
     props.onNewTeaCreation({
       name: event.target.name.value,
       price: event.target.price.value,
+      stock: event.target.stock.value,
       description: event.target.description.value,
       id: v4()
     });
