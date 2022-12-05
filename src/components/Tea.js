@@ -1,22 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function Tea(){
-  const name = "Earl Grey";
-  const name2 = "Passion";
-  const price = "$30/lbs";
-  const description = "A nice, strong tea that has hints of lavender in it.";
-  const description2 = "insert description";
+function Tea(props){
   return ( 
     <React.Fragment>
-      <h3>{name}</h3>
-      <h3>{price}</h3>
-      <p><em>{description}</em></p>
-      <h3>{name2}</h3>
-      <h3>{price}</h3>
-      <p><em>{description2}</em></p>
+      <h3>{props.name}</h3>
+      <h3>{props.price}</h3>
+      <p><em>{props.description}</em></p>
       <hr/>
     </React.Fragment>
   );
 }
+
+Tea.propTypes = {
+  name: PropTypes.string,isRequired,
+  price: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 
 export default Tea;
